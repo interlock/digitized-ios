@@ -22,12 +22,12 @@
 		EE1B8F2E154C458C00AF34F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F2D154C458C00AF34F1 /* SystemConfiguration.framework */; };
 		EE1B8F30154C459400AF34F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F2F154C459400AF34F1 /* QuartzCore.framework */; };
 		EE1B8F32154C45A000AF34F1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F31154C45A000AF34F1 /* libxml2.dylib */; };
-		EE1B8F36154C4AF600AF34F1 /* DIGIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F35154C4AF600AF34F1 /* DIGIUser.m */; };
 		EE1B8F39154C4B3800AF34F1 /* DIGIStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */; };
-		EE1B8F41154C533F00AF34F1 /* DIGILiveTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */; };
+		EE1B8F41154C533F00AF34F1 /* DIGILiveTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F40154C533F00AF34F1 /* DIGILiveTweetTableViewController.m */; };
 		EE1B8F48154C542600AF34F1 /* DIGITweetViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */; };
 		EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F49154C56DA00AF34F1 /* MapKit.framework */; };
 		EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */; };
+		EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,16 +95,16 @@
 		EE1B8F2D154C458C00AF34F1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE1B8F2F154C459400AF34F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EE1B8F31154C45A000AF34F1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		EE1B8F34154C4AF600AF34F1 /* DIGIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIUser.h; sourceTree = "<group>"; };
-		EE1B8F35154C4AF600AF34F1 /* DIGIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIUser.m; sourceTree = "<group>"; };
 		EE1B8F37154C4B3800AF34F1 /* DIGIStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIStatus.h; sourceTree = "<group>"; };
 		EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIStatus.m; sourceTree = "<group>"; };
-		EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGILiveTweetViewController.h; sourceTree = "<group>"; };
-		EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGILiveTweetViewController.m; sourceTree = "<group>"; };
+		EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGILiveTweetTableViewController.h; sourceTree = "<group>"; };
+		EE1B8F40154C533F00AF34F1 /* DIGILiveTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGILiveTweetTableViewController.m; sourceTree = "<group>"; };
 		EE1B8F46154C542600AF34F1 /* DIGITweetViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGITweetViewCell.h; sourceTree = "<group>"; };
 		EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGITweetViewCell.m; sourceTree = "<group>"; };
 		EE1B8F49154C56DA00AF34F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EE1B8F4D154C5FB200AF34F1 /* DIGISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGISearch.h; sourceTree = "<group>"; };
+		EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGISearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,10 +216,10 @@
 		EE1B8F33154C48E500AF34F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EE1B8F34154C4AF600AF34F1 /* DIGIUser.h */,
-				EE1B8F35154C4AF600AF34F1 /* DIGIUser.m */,
 				EE1B8F37154C4B3800AF34F1 /* DIGIStatus.h */,
 				EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */,
+				EE1B8F4D154C5FB200AF34F1 /* DIGISearch.h */,
+				EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,8 +227,8 @@
 		EE1B8F3E154C530100AF34F1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetViewController.h */,
-				EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */,
+				EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetTableViewController.h */,
+				EE1B8F40154C533F00AF34F1 /* DIGILiveTweetTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -352,10 +352,10 @@
 			files = (
 				EE1B8EF1154C3FE000AF34F1 /* main.m in Sources */,
 				EE1B8EF5154C3FE000AF34F1 /* DIGIAppDelegate.m in Sources */,
-				EE1B8F36154C4AF600AF34F1 /* DIGIUser.m in Sources */,
 				EE1B8F39154C4B3800AF34F1 /* DIGIStatus.m in Sources */,
-				EE1B8F41154C533F00AF34F1 /* DIGILiveTweetViewController.m in Sources */,
+				EE1B8F41154C533F00AF34F1 /* DIGILiveTweetTableViewController.m in Sources */,
 				EE1B8F48154C542600AF34F1 /* DIGITweetViewCell.m in Sources */,
+				EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +485,7 @@
 				EE1B8F0B154C3FE000AF34F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,20 +1,21 @@
 //
-//  DIGILiveTweetViewController.m
+//  DIGILiveTweetTableViewController.m
 //  Digitized
 //
 //  Created by James Sapara on 12-04-28.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DIGILiveTweetViewController.h"
+#import "DIGILiveTweetTableViewController.h"
+#import "DIGITweetViewCell.h"
+#import "DIGISearch.h"
 
-@interface DIGILiveTweetViewController ()
+@interface DIGILiveTweetTableViewController ()
 
 @end
 
-@implementation DIGILiveTweetViewController
+@implementation DIGILiveTweetTableViewController
 
-@synthesize tableView = _tableView;
 @synthesize statuses = _statuses;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,33 +44,42 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)refreshClick:(id)sender {
+    [self loadTimeline];
+}
+
 - (void)loadTimeline {
     // Load the object model via RestKit	
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    objectManager.client.baseURL = [RKURL URLWithString:@"https://api.twitter.com"];
-    [objectManager loadObjectsAtResourcePath:@"/search?q=#digitizedsk" delegate:self];
+    
+    [objectManager loadObjectsAtResourcePath:@"search.json?q=#yxe" usingBlock:^(RKObjectLoader *loader) {
+        loader.delegate = self;
+        loader.objectMapping = [DIGISearch getMapping];
+    }];
+    /*
+    objectManager.client.baseURL = [RKURL URLWithString:@"http://search.twitter.com"];
+    NSDictionary *params = [NSDictionary dictionaryWithKeysAndObjects:
+                            @"q",@"#yxe", nil];
+
+    
+    RKObjectLoader *loader = [RKObjectLoader loaderWithURL:[RKURL URLWithBaseURLString:@"http://search.twitter.com"
+                                                                          resourcePath:@"search.json"
+                                                                       queryParameters:params]
+                                                                    
+                                           mappingProvider:objectManager.mappingProvider];
+    [loader setDelegate:self];
+    [loader setObjectMapping:[DIGISearch getMapping]];
+    [loader setMethod:RKRequestMethodGET];
+    [loader setCacheTimeoutInterval:15];
+    [loader send];*/
 }
 
 - (void)loadView {
     [super loadView];
 	
 	// Setup View and Table View	
-	self.title = @"RestKit Tweets";
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackTranslucent;
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(loadTimeline)];
-    
-	UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
-	imageView.frame = CGRectOffset(imageView.frame, 0, -64);
-	
-	[self.view insertSubview:imageView atIndex:0];
-	
-	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480-64) style:UITableViewStylePlain];
-	_tableView.dataSource = self;
-	_tableView.delegate = self;		
-	_tableView.backgroundColor = [UIColor clearColor];
-	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_tableView];
+	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	
 	[self loadTimeline];
 }
@@ -79,10 +89,14 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
 }
+     
 
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-	NSLog(@"Loaded statuses: %@", objects);    
-	[_tableView reloadData];
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object {
+    NSLog(@"Loaded statuses: %@", object);
+    DIGISearch *searchResult = (DIGISearch*)object;
+    
+    [self setStatuses:searchResult.results];
+	[self.tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -105,16 +119,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSString* reuseIdentifier = @"Tweet Cell";
-	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+	NSString* reuseIdentifier = @"TWEET_CELL";
+	DIGITweetViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	if (nil == cell) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-		cell.textLabel.font = [UIFont systemFontOfSize:14];
-		cell.textLabel.numberOfLines = 0;
-		cell.textLabel.backgroundColor = [UIColor clearColor];
-		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];
+        cell = [[DIGITweetViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 	}
+    // setup tweet
 	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
+    cell.timestampLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
 	return cell;
 }
 

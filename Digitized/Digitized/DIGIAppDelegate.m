@@ -8,7 +8,7 @@
 
 #import "DIGIAppDelegate.h"
 #import <RestKit/RestKit.h>
-#import "DIGIUser.h"
+
 #import "DIGIStatus.h"
 
 @implementation DIGIAppDelegate
@@ -19,7 +19,7 @@
 {
     // Override point for customization after application launch.
     
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"https://api.twitter.com"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://search.twitter.com"];
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
 
     // OAuth Setup
@@ -30,28 +30,10 @@
     objectManager.client.authenticationType = RKRequestAuthenticationTypeOAuth1;
     
     
-    // Mapping
-    
-    RKObjectMapping* userMapping = [RKObjectMapping mappingForClass:[DIGIUser class]];
-    [userMapping mapKeyPath:@"id" toAttribute:@"userID"];
-    [userMapping mapKeyPath:@"screen_name" toAttribute:@"screenName"];
-    [userMapping mapAttributes:@"name", nil];
-    
-    RKObjectMapping* statusMapping = [RKObjectMapping mappingForClass:[DIGIStatus class]];
-    [statusMapping mapKeyPathsToAttributes:@"id", @"statusID",
-     @"created_at", @"createdAt",
-     @"text", @"text",
-     @"url", @"urlString",
-     @"in_reply_to_screen_name", @"inReplyToScreenName",
-     @"favorited", @"isFavorited",
-     nil];
-    [statusMapping mapRelationship:@"user" withMapping:userMapping];
-    
     // Update date format so that we can parse Twitter dates properly
 	// Wed Sep 29 15:31:08 +0000 2010
     [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
-    
-    [objectManager.mappingProvider setObjectMapping:statusMapping forKeyPath:@"/search.json?q=:query&result_type=mixed"];
+
     
     return YES;
 }
