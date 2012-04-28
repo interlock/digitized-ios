@@ -51,7 +51,7 @@
 	// Wed Sep 29 15:31:08 +0000 2010
     [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
     
-    [objectManager.mappingProvider setObjectMapping:statusMapping forKeyPath:@"/status"];
+    [objectManager.mappingProvider setObjectMapping:statusMapping forKeyPath:@"/search.json?q=:query&result_type=mixed"];
     
     return YES;
 }

@@ -24,6 +24,10 @@
 		EE1B8F32154C45A000AF34F1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F31154C45A000AF34F1 /* libxml2.dylib */; };
 		EE1B8F36154C4AF600AF34F1 /* DIGIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F35154C4AF600AF34F1 /* DIGIUser.m */; };
 		EE1B8F39154C4B3800AF34F1 /* DIGIStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */; };
+		EE1B8F41154C533F00AF34F1 /* DIGILiveTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */; };
+		EE1B8F48154C542600AF34F1 /* DIGITweetViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */; };
+		EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F49154C56DA00AF34F1 /* MapKit.framework */; };
+		EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,12 @@
 		EE1B8F35154C4AF600AF34F1 /* DIGIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIUser.m; sourceTree = "<group>"; };
 		EE1B8F37154C4B3800AF34F1 /* DIGIStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIStatus.h; sourceTree = "<group>"; };
 		EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIStatus.m; sourceTree = "<group>"; };
+		EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGILiveTweetViewController.h; sourceTree = "<group>"; };
+		EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGILiveTweetViewController.m; sourceTree = "<group>"; };
+		EE1B8F46154C542600AF34F1 /* DIGITweetViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGITweetViewCell.h; sourceTree = "<group>"; };
+		EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGITweetViewCell.m; sourceTree = "<group>"; };
+		EE1B8F49154C56DA00AF34F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */,
+				EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */,
 				EE1B8F32154C45A000AF34F1 /* libxml2.dylib in Frameworks */,
 				EE1B8F30154C459400AF34F1 /* QuartzCore.framework in Frameworks */,
 				EE1B8F2E154C458C00AF34F1 /* SystemConfiguration.framework in Frameworks */,
@@ -140,6 +152,8 @@
 		EE1B8EE3154C3FE000AF34F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */,
+				EE1B8F49154C56DA00AF34F1 /* MapKit.framework */,
 				EE1B8F31154C45A000AF34F1 /* libxml2.dylib */,
 				EE1B8F2F154C459400AF34F1 /* QuartzCore.framework */,
 				EE1B8F2D154C458C00AF34F1 /* SystemConfiguration.framework */,
@@ -157,6 +171,8 @@
 		EE1B8EEA154C3FE000AF34F1 /* Digitized */ = {
 			isa = PBXGroup;
 			children = (
+				EE1B8F42154C53EE00AF34F1 /* Views */,
+				EE1B8F3E154C530100AF34F1 /* Controllers */,
 				EE1B8F33154C48E500AF34F1 /* Models */,
 				EE1B8EF3154C3FE000AF34F1 /* DIGIAppDelegate.h */,
 				EE1B8EF4154C3FE000AF34F1 /* DIGIAppDelegate.m */,
@@ -206,6 +222,24 @@
 				EE1B8F38154C4B3800AF34F1 /* DIGIStatus.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EE1B8F3E154C530100AF34F1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetViewController.h */,
+				EE1B8F40154C533F00AF34F1 /* DIGILiveTweetViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EE1B8F42154C53EE00AF34F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B8F46154C542600AF34F1 /* DIGITweetViewCell.h */,
+				EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +354,8 @@
 				EE1B8EF5154C3FE000AF34F1 /* DIGIAppDelegate.m in Sources */,
 				EE1B8F36154C4AF600AF34F1 /* DIGIUser.m in Sources */,
 				EE1B8F39154C4B3800AF34F1 /* DIGIStatus.m in Sources */,
+				EE1B8F41154C533F00AF34F1 /* DIGILiveTweetViewController.m in Sources */,
+				EE1B8F48154C542600AF34F1 /* DIGITweetViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

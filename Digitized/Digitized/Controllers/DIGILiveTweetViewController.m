@@ -1,0 +1,121 @@
+//
+//  DIGILiveTweetViewController.m
+//  Digitized
+//
+//  Created by James Sapara on 12-04-28.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "DIGILiveTweetViewController.h"
+
+@interface DIGILiveTweetViewController ()
+
+@end
+
+@implementation DIGILiveTweetViewController
+
+@synthesize tableView = _tableView;
+@synthesize statuses = _statuses;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)loadTimeline {
+    // Load the object model via RestKit	
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    objectManager.client.baseURL = [RKURL URLWithString:@"https://api.twitter.com"];
+    [objectManager loadObjectsAtResourcePath:@"/search?q=#digitizedsk" delegate:self];
+}
+
+- (void)loadView {
+    [super loadView];
+	
+	// Setup View and Table View	
+	self.title = @"RestKit Tweets";
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackTranslucent;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(loadTimeline)];
+    
+	UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
+	imageView.frame = CGRectOffset(imageView.frame, 0, -64);
+	
+	[self.view insertSubview:imageView atIndex:0];
+	
+	_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480-64) style:UITableViewStylePlain];
+	_tableView.dataSource = self;
+	_tableView.delegate = self;		
+	_tableView.backgroundColor = [UIColor clearColor];
+	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
+	
+	[self loadTimeline];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+	NSLog(@"Loaded statuses: %@", objects);    
+	[_tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	NSLog(@"Hit error: %@", error);
+}
+
+#pragma mark UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	CGSize size = [[[_statuses objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
+	return size.height + 10;
+}
+
+#pragma mark UITableViewDataSource methods
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+	return [_statuses count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSString* reuseIdentifier = @"Tweet Cell";
+	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+	if (nil == cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+		cell.textLabel.font = [UIFont systemFontOfSize:14];
+		cell.textLabel.numberOfLines = 0;
+		cell.textLabel.backgroundColor = [UIColor clearColor];
+		cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];
+	}
+	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
+	return cell;
+}
+
+@end
