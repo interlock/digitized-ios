@@ -51,6 +51,7 @@
                         <segue destination="lZk-mj-e6C" kind="relationship" relationship="viewControllers" id="QF2-cZ-UOg"/>
                         <segue destination="QuO-8q-ZNd" kind="relationship" relationship="viewControllers" id="E8d-tV-ROC"/>
                         <segue destination="yQO-Os-y5F" kind="relationship" relationship="viewControllers" id="tWu-6A-deb"/>
+                        <segue destination="1kc-Gt-yle" kind="relationship" relationship="viewControllers" id="a26-hu-WBE"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -77,6 +78,27 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="598" y="1053"/>
+        </scene>
+        <!--View Controller - Map-->
+        <scene sceneID="vMo-M5-4rQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP4-RX-Ehg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="1kc-Gt-yle" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qsL-Be-PLg">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="3dn-II-yQl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="B5K-OC-Mg5"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="145" y="754"/>
         </scene>
         <!--Table View Controller - #YXE-->
         <scene sceneID="VPR-ee-0ey">
