@@ -9,6 +9,7 @@
 #import "DIGILiveTweetTableViewController.h"
 #import "DIGITweetViewCell.h"
 #import "DIGISearch.h"
+#import "DIGIStatus.h"
 
 @interface DIGILiveTweetTableViewController ()
 
@@ -56,22 +57,6 @@
         loader.delegate = self;
         loader.objectMapping = [DIGISearch getMapping];
     }];
-    /*
-    objectManager.client.baseURL = [RKURL URLWithString:@"http://search.twitter.com"];
-    NSDictionary *params = [NSDictionary dictionaryWithKeysAndObjects:
-                            @"q",@"#yxe", nil];
-
-    
-    RKObjectLoader *loader = [RKObjectLoader loaderWithURL:[RKURL URLWithBaseURLString:@"http://search.twitter.com"
-                                                                          resourcePath:@"search.json"
-                                                                       queryParameters:params]
-                                                                    
-                                           mappingProvider:objectManager.mappingProvider];
-    [loader setDelegate:self];
-    [loader setObjectMapping:[DIGISearch getMapping]];
-    [loader setMethod:RKRequestMethodGET];
-    [loader setCacheTimeoutInterval:15];
-    [loader send];*/
 }
 
 - (void)loadView {
@@ -125,8 +110,12 @@
         cell = [[DIGITweetViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 	}
     // setup tweet
-	cell.textLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
-    cell.timestampLabel.text = [[_statuses objectAtIndex:indexPath.row] text];
+    DIGIStatus *status = (DIGIStatus*)[_statuses objectAtIndex:indexPath.row];
+    NSURL *url = [NSURL URLWithString: [status profileImageUrlString]];
+    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+    [cell.imageView setImage:image];
+	cell.textLabel.text = [status text];
+    cell.timestampLabel.text = [status text];
 	return cell;
 }
 

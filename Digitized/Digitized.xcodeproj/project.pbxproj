@@ -28,6 +28,8 @@
 		EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F49154C56DA00AF34F1 /* MapKit.framework */; };
 		EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */; };
 		EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */; };
+		EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */; };
+		EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A250154DF1C2000A75A1 /* DIGIWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,10 @@
 		EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE1B8F4D154C5FB200AF34F1 /* DIGISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGISearch.h; sourceTree = "<group>"; };
 		EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGISearch.m; sourceTree = "<group>"; };
+		EEB3A24C154DF1B0000A75A1 /* DIGIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIMapViewController.h; sourceTree = "<group>"; };
+		EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIMapViewController.m; sourceTree = "<group>"; };
+		EEB3A24F154DF1C2000A75A1 /* DIGIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIWebViewController.h; sourceTree = "<group>"; };
+		EEB3A250154DF1C2000A75A1 /* DIGIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +235,10 @@
 			children = (
 				EE1B8F3F154C533F00AF34F1 /* DIGILiveTweetTableViewController.h */,
 				EE1B8F40154C533F00AF34F1 /* DIGILiveTweetTableViewController.m */,
+				EEB3A24C154DF1B0000A75A1 /* DIGIMapViewController.h */,
+				EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */,
+				EEB3A24F154DF1C2000A75A1 /* DIGIWebViewController.h */,
+				EEB3A250154DF1C2000A75A1 /* DIGIWebViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -356,6 +366,8 @@
 				EE1B8F41154C533F00AF34F1 /* DIGILiveTweetTableViewController.m in Sources */,
 				EE1B8F48154C542600AF34F1 /* DIGITweetViewCell.m in Sources */,
 				EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */,
+				EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */,
+				EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
