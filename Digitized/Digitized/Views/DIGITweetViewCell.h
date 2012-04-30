@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TCImageView.h"
 
 @interface DIGITweetViewCell : UITableViewCell
 
-@property (nonatomic,strong) IBOutlet UIImageView *profileImageView;
-@property (nonatomic,strong) IBOutlet UILabel *timestampLabel;
+@property (nonatomic,strong) IBOutlet TCImageView *profileImageView;
+@property (nonatomic,strong) IBOutlet UILabel *textLabel;
 
 @end

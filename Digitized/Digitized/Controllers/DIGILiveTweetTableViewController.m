@@ -18,6 +18,7 @@
 @implementation DIGILiveTweetTableViewController
 
 @synthesize statuses = _statuses;
+@synthesize placeHolderImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,7 +64,7 @@
     [super loadView];
 	
 	// Setup View and Table View	
-	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.backgroundColor = [UIColor whiteColor];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	
 	[self loadTimeline];
@@ -93,7 +94,7 @@
 #pragma mark UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CGSize size = [[[_statuses objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
+	CGSize size = [[[_statuses objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(219, 9000)];
 	return size.height + 10;
 }
 
@@ -105,17 +106,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString* reuseIdentifier = @"TWEET_CELL";
-	DIGITweetViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+	DIGITweetViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	if (nil == cell) {
-        cell = [[DIGITweetViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        //cell = [[DIGITweetViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	}
     // setup tweet
     DIGIStatus *status = (DIGIStatus*)[_statuses objectAtIndex:indexPath.row];
-    NSURL *url = [NSURL URLWithString: [status profileImageUrlString]];
-    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
-    [cell.imageView setImage:image];
-	cell.textLabel.text = [status text];
-    cell.timestampLabel.text = [status text];
+    TCImageView *imageView = [[TCImageView alloc] initWithURL:[NSURL URLWithString:[status profileImageUrlString]]
+                                             placeholderImage:self.placeHolderImageView.image];
+    [imageView setFrame:cell.profileImageView.frame];
+    [cell.profileImageView removeFromSuperview];
+    [cell setProfileImageView: imageView];
+    [cell addSubview:imageView];
+    [imageView loadImage];
+    
+    [cell.textLabel setText:[status text]];
+    CGSize size = [[status text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(219, 9000)];
+    CGRect textLabelFrame = cell.textLabel.frame;
+    textLabelFrame.size.height = size.height + 10;
+    [cell.textLabel setFrame: textLabelFrame];
+    
 	return cell;
 }
 

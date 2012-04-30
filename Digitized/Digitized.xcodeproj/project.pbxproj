@@ -28,6 +28,12 @@
 		EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F49154C56DA00AF34F1 /* MapKit.framework */; };
 		EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */; };
 		EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */; };
+		EE49CF5A154E0818007B1C49 /* TCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE49CF59154E0818007B1C49 /* TCImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EE49CF5D154E0CF1007B1C49 /* 1335743808_rss_feed.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF5C154E0CF1007B1C49 /* 1335743808_rss_feed.png */; };
+		EE49CF5F154E0D33007B1C49 /* 1335743911_map.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF5E154E0D33007B1C49 /* 1335743911_map.png */; };
+		EE49CF62154E0D84007B1C49 /* 1335743994_pie__percent.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF60154E0D84007B1C49 /* 1335743994_pie__percent.png */; };
+		EE49CF63154E0D84007B1C49 /* 1335743976_list.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF61154E0D84007B1C49 /* 1335743976_list.png */; };
+		EE49CF65154E0E56007B1C49 /* silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF64154E0E56007B1C49 /* silhouette.png */; };
 		EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */; };
 		EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A250154DF1C2000A75A1 /* DIGIWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -107,6 +113,13 @@
 		EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE1B8F4D154C5FB200AF34F1 /* DIGISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGISearch.h; sourceTree = "<group>"; };
 		EE1B8F4E154C5FB200AF34F1 /* DIGISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGISearch.m; sourceTree = "<group>"; };
+		EE49CF58154E0818007B1C49 /* TCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCImageView.h; path = ../Vendors/TCImageView.h; sourceTree = "<group>"; };
+		EE49CF59154E0818007B1C49 /* TCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCImageView.m; path = ../Vendors/TCImageView.m; sourceTree = "<group>"; };
+		EE49CF5C154E0CF1007B1C49 /* 1335743808_rss_feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743808_rss_feed.png; sourceTree = "<group>"; };
+		EE49CF5E154E0D33007B1C49 /* 1335743911_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743911_map.png; sourceTree = "<group>"; };
+		EE49CF60154E0D84007B1C49 /* 1335743994_pie__percent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743994_pie__percent.png; sourceTree = "<group>"; };
+		EE49CF61154E0D84007B1C49 /* 1335743976_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743976_list.png; sourceTree = "<group>"; };
+		EE49CF64154E0E56007B1C49 /* silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = silhouette.png; sourceTree = "<group>"; };
 		EEB3A24C154DF1B0000A75A1 /* DIGIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIMapViewController.h; sourceTree = "<group>"; };
 		EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIMapViewController.m; sourceTree = "<group>"; };
 		EEB3A24F154DF1C2000A75A1 /* DIGIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIWebViewController.h; sourceTree = "<group>"; };
@@ -177,6 +190,7 @@
 		EE1B8EEA154C3FE000AF34F1 /* Digitized */ = {
 			isa = PBXGroup;
 			children = (
+				EE49CF5B154E0CD2007B1C49 /* UI */,
 				EE1B8F42154C53EE00AF34F1 /* Views */,
 				EE1B8F3E154C530100AF34F1 /* Controllers */,
 				EE1B8F33154C48E500AF34F1 /* Models */,
@@ -214,6 +228,8 @@
 		EE1B8F21154C44C000AF34F1 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				EE49CF58154E0818007B1C49 /* TCImageView.h */,
+				EE49CF59154E0818007B1C49 /* TCImageView.m */,
 				EE1B8F0C154C44BD00AF34F1 /* RestKit.xcodeproj */,
 			);
 			name = Vendors;
@@ -250,6 +266,18 @@
 				EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EE49CF5B154E0CD2007B1C49 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EE49CF64154E0E56007B1C49 /* silhouette.png */,
+				EE49CF60154E0D84007B1C49 /* 1335743994_pie__percent.png */,
+				EE49CF61154E0D84007B1C49 /* 1335743976_list.png */,
+				EE49CF5E154E0D33007B1C49 /* 1335743911_map.png */,
+				EE49CF5C154E0CF1007B1C49 /* 1335743808_rss_feed.png */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +378,11 @@
 			files = (
 				EE1B8EEF154C3FE000AF34F1 /* InfoPlist.strings in Resources */,
 				EE1B8EF8154C3FE000AF34F1 /* MainStoryboard.storyboard in Resources */,
+				EE49CF5D154E0CF1007B1C49 /* 1335743808_rss_feed.png in Resources */,
+				EE49CF5F154E0D33007B1C49 /* 1335743911_map.png in Resources */,
+				EE49CF62154E0D84007B1C49 /* 1335743994_pie__percent.png in Resources */,
+				EE49CF63154E0D84007B1C49 /* 1335743976_list.png in Resources */,
+				EE49CF65154E0E56007B1C49 /* silhouette.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +401,7 @@
 				EE1B8F4F154C5FB200AF34F1 /* DIGISearch.m in Sources */,
 				EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */,
 				EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */,
+				EE49CF5A154E0818007B1C49 /* TCImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

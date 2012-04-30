@@ -12,7 +12,7 @@
 @interface DIGILiveTweetTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,RKObjectLoaderDelegate>
 
 @property (nonatomic,strong) NSArray *statuses;
-
+@property (nonatomic,strong) IBOutlet UIImageView *placeHolderImageView;
 - (void)loadTimeline;
 
 - (IBAction)refreshClick:(id)sender;

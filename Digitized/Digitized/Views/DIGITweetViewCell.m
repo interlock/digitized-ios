@@ -11,7 +11,7 @@
 @implementation DIGITweetViewCell
 
 @synthesize profileImageView = _profileImageView;
-@synthesize timestampLabel = _timestampLabel;
+@synthesize textLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
