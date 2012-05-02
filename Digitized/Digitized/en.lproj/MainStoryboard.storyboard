@@ -18,17 +18,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QuO-8q-ZNd" kind="relationship" relationship="viewControllers" id="E8d-tV-ROC"/>
+                        <segue destination="yIa-wd-VVv" kind="relationship" relationship="viewControllers" id="qfo-sd-OHO"/>
                         <segue destination="yQO-Os-y5F" kind="relationship" relationship="viewControllers" id="tWu-6A-deb"/>
                         <segue destination="1kc-Gt-yle" kind="relationship" relationship="viewControllers" id="a26-hu-WBE"/>
-                        <segue destination="yIa-wd-VVv" kind="relationship" relationship="viewControllers" id="qfo-sd-OHO"/>
                         <segue destination="frX-5k-zxo" kind="relationship" relationship="viewControllers" id="lE3-Se-1CT"/>
                     </connections>
                 </tabBarController>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Live Tweet Table View Controller - Live-->
+        <!--Live Tweet Table View Controller - Twitter-->
         <scene sceneID="WnO-Y3-N4j">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0W6-XA-dCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,6 +36,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TWEET_CELL" rowHeight="62" id="fHE-Nh-O92" customClass="DIGITweetViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="62"/>
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="yIa-wd-VVv" id="JdQ-co-x4T"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Live" image="1335743994_pie__percent.png" id="OLg-WX-NzC"/>
+                    <tabBarItem key="tabBarItem" title="Twitter" image="1335743994_pie__percent.png" id="OLg-WX-NzC"/>
                     <connections>
                         <outlet property="placeHolderImageView" destination="nRa-na-fdJ" id="5pK-oq-CFk"/>
                     </connections>
@@ -82,7 +82,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="582" y="-202"/>
+            <point key="canvasLocation" x="606" y="-400"/>
         </scene>
         <!--Web View Controller - Tumblr View Controller-->
         <scene sceneID="RKU-4q-HN7">
@@ -93,26 +93,71 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="kzn-ax-HrV">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="kzn-ax-HrV">
                                 <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yQO-Os-y5F" id="pWJ-Vz-dYE"/>
+                                </connections>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="LfU-0B-aU2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem style="plain" id="7So-de-WVL">
+                                        <view key="customView" contentMode="scaleToFill" id="9X9-TL-4Cc">
+                                            <rect key="frame" x="12" y="6" width="22" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="B3e-Xb-dbQ">
+                                                    <rect key="frame" x="0.0" y="7" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GvS-vz-WmT"/>
-                                    <barButtonItem systemItem="refresh" id="csa-Fn-N6R"/>
+                                    <barButtonItem style="plain" id="RJT-vp-A86">
+                                        <view key="customView" contentMode="scaleToFill" id="09H-Um-fqq">
+                                            <rect key="frame" x="68" y="6" width="183" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Digitized" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Lbf-OQ-PdZ">
+                                                    <rect key="frame" x="0.0" y="6" width="183" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nnE-Tt-DRZ"/>
+                                    <barButtonItem systemItem="refresh" id="csa-Fn-N6R">
+                                        <connections>
+                                            <action selector="refreshButtonClick:" destination="yQO-Os-y5F" id="mnr-du-zvc"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tumblr" image="1335743808_rss_feed.png" id="d9z-uj-zQq"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="B3e-Xb-dbQ" id="NAT-S6-iug"/>
+                        <outlet property="webView" destination="kzn-ax-HrV" id="fER-Fm-II1"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="598" y="1053"/>
+            <point key="canvasLocation" x="606" y="754"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="vMo-M5-4rQ">
@@ -150,36 +195,6 @@
             </objects>
             <point key="canvasLocation" x="145" y="754"/>
         </scene>
-        <!--Table View Controller - #YXE-->
-        <scene sceneID="VPR-ee-0ey">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bMR-Di-PLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="#YXE" id="QuO-8q-ZNd" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K0e-zc-IYY">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TWEET_CELL" id="pkG-K7-hqN">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="QuO-8q-ZNd" id="qAO-Y9-rDs"/>
-                            <outlet property="delegate" destination="QuO-8q-ZNd" id="qjZ-tG-tsE"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="#YXE" image="1335743976_list.png" id="D8i-JD-u2D"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="598" y="487"/>
-        </scene>
         <!--View Controller - Touches-->
         <scene sceneID="Yv7-GF-VkO">
             <objects>
@@ -210,7 +225,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1243" y="575"/>
+            <point key="canvasLocation" x="606" y="180"/>
         </scene>
     </scenes>
     <resources>
@@ -247,6 +262,11 @@
         </class>
         <class className="DIGIWebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DIGIWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshButtonClick:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
         </class>
         <class className="TCImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TCImageView.h"/>

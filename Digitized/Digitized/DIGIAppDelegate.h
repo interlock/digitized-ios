@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface DIGIAppDelegate : UIResponder <UIApplicationDelegate, RKOAuthClientDelegate>
+@interface DIGIAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

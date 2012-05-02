@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIGIWebViewController : UIViewController
+@interface DIGIWebViewController : UIViewController <UIWebViewDelegate>
+
+@property (nonatomic,strong) IBOutlet UIWebView *webView;
+@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+- (IBAction)refreshButtonClick:(id)sender;
 
 @end

@@ -54,7 +54,7 @@
     // Load the object model via RestKit	
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     
-    [objectManager loadObjectsAtResourcePath:@"search.json?q=#yxe" usingBlock:^(RKObjectLoader *loader) {
+    [objectManager loadObjectsAtResourcePath:@"search.json?q=#Digitized2012" usingBlock:^(RKObjectLoader *loader) {
         loader.delegate = self;
         loader.objectMapping = [DIGISearch getMapping];
     }];
@@ -94,8 +94,12 @@
 #pragma mark UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CGSize size = [[[_statuses objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(219, 9000)];
-	return size.height + 10;
+    NSString *cellText = [[_statuses objectAtIndex:indexPath.row] text];
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:14.0];
+    CGSize constraintSize = CGSizeMake(219.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return labelSize.height + 20;
 }
 
 #pragma mark UITableViewDataSource methods
@@ -110,22 +114,24 @@
 	if (nil == cell) {
         //cell = [[DIGITweetViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+        [cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
+        [cell.textLabel setNumberOfLines:0];
+        [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:14.0]];
 	}
     // setup tweet
     DIGIStatus *status = (DIGIStatus*)[_statuses objectAtIndex:indexPath.row];
     TCImageView *imageView = [[TCImageView alloc] initWithURL:[NSURL URLWithString:[status profileImageUrlString]]
-                                             placeholderImage:self.placeHolderImageView.image];
+                                             placeholderImage:nil];
     [imageView setFrame:cell.profileImageView.frame];
     [cell.profileImageView removeFromSuperview];
     [cell setProfileImageView: imageView];
     [cell addSubview:imageView];
     [imageView loadImage];
-    
+    CGRect newFrame = cell.textLabel.frame;
+    newFrame.size.height = [self tableView:tableView heightForRowAtIndexPath:indexPath];
     [cell.textLabel setText:[status text]];
-    CGSize size = [[status text] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(219, 9000)];
-    CGRect textLabelFrame = cell.textLabel.frame;
-    textLabelFrame.size.height = size.height + 10;
-    [cell.textLabel setFrame: textLabelFrame];
+    [cell.textLabel setFrame:newFrame];
+
     
 	return cell;
 }
