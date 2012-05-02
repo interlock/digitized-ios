@@ -131,13 +131,20 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c82-a6-Nuw"/>
-                                    <barButtonItem systemItem="refresh" id="jIT-Nq-6BC"/>
+                                    <barButtonItem title="Locate" id="ORs-9J-7iz">
+                                        <connections>
+                                            <action selector="locateUser:" destination="1kc-Gt-yle" id="YJp-4E-2go"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="1335743911_map.png" id="B5K-OC-Mg5"/>
+                    <connections>
+                        <outlet property="mapView" destination="3dn-II-yQl" id="nyC-7O-rq2"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="145" y="754"/>
@@ -190,6 +197,10 @@
         </class>
         <class className="DIGIMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DIGIMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="locateUser:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="DIGITweetViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DIGITweetViewCell.h"/>
