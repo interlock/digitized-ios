@@ -34,6 +34,8 @@
 		EE49CF62154E0D84007B1C49 /* 1335743994_pie__percent.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF60154E0D84007B1C49 /* 1335743994_pie__percent.png */; };
 		EE49CF63154E0D84007B1C49 /* 1335743976_list.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF61154E0D84007B1C49 /* 1335743976_list.png */; };
 		EE49CF65154E0E56007B1C49 /* silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = EE49CF64154E0E56007B1C49 /* silhouette.png */; };
+		EE59214115502C5A0010C17B /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE59213F15502C5A0010C17B /* libTestFlight.a */; };
+		EE59214315502C7A0010C17B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE59214215502C7A0010C17B /* libz.dylib */; };
 		EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */; };
 		EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A250154DF1C2000A75A1 /* DIGIWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,9 @@
 		EE49CF60154E0D84007B1C49 /* 1335743994_pie__percent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743994_pie__percent.png; sourceTree = "<group>"; };
 		EE49CF61154E0D84007B1C49 /* 1335743976_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1335743976_list.png; sourceTree = "<group>"; };
 		EE49CF64154E0E56007B1C49 /* silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = silhouette.png; sourceTree = "<group>"; };
+		EE59213F15502C5A0010C17B /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = ../Vendors/libTestFlight.a; sourceTree = "<group>"; };
+		EE59214015502C5A0010C17B /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = ../Vendors/TestFlight.h; sourceTree = "<group>"; };
+		EE59214215502C7A0010C17B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EEB3A24C154DF1B0000A75A1 /* DIGIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIMapViewController.h; sourceTree = "<group>"; };
 		EEB3A24D154DF1B0000A75A1 /* DIGIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIMapViewController.m; sourceTree = "<group>"; };
 		EEB3A24F154DF1C2000A75A1 /* DIGIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIWebViewController.h; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE59214315502C7A0010C17B /* libz.dylib in Frameworks */,
 				EE1B8F4C154C56E300AF34F1 /* CoreLocation.framework in Frameworks */,
 				EE1B8F4A154C56DA00AF34F1 /* MapKit.framework in Frameworks */,
 				EE1B8F32154C45A000AF34F1 /* libxml2.dylib in Frameworks */,
@@ -144,6 +150,7 @@
 				EE1B8EE5154C3FE000AF34F1 /* UIKit.framework in Frameworks */,
 				EE1B8EE7154C3FE000AF34F1 /* Foundation.framework in Frameworks */,
 				EE1B8EE9154C3FE000AF34F1 /* CoreGraphics.framework in Frameworks */,
+				EE59214115502C5A0010C17B /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +178,7 @@
 		EE1B8EE3154C3FE000AF34F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE59214215502C7A0010C17B /* libz.dylib */,
 				EE1B8F4B154C56E200AF34F1 /* CoreLocation.framework */,
 				EE1B8F49154C56DA00AF34F1 /* MapKit.framework */,
 				EE1B8F31154C45A000AF34F1 /* libxml2.dylib */,
@@ -228,6 +236,8 @@
 		EE1B8F21154C44C000AF34F1 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				EE59213F15502C5A0010C17B /* libTestFlight.a */,
+				EE59214015502C5A0010C17B /* TestFlight.h */,
 				EE49CF58154E0818007B1C49 /* TCImageView.h */,
 				EE49CF59154E0818007B1C49 /* TCImageView.m */,
 				EE1B8F0C154C44BD00AF34F1 /* RestKit.xcodeproj */,
@@ -451,7 +461,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -474,7 +484,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -497,6 +507,10 @@
 				GCC_PREFIX_HEADER = "Digitized/Digitized-Prefix.pch";
 				INFOPLIST_FILE = "Digitized/Digitized-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Vendors\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -509,6 +523,10 @@
 				GCC_PREFIX_HEADER = "Digitized/Digitized-Prefix.pch";
 				INFOPLIST_FILE = "Digitized/Digitized-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Vendors\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

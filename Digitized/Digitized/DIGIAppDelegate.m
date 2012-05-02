@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //[TestFlight takeOff:@"Insert your Team Token here"];
     
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://search.twitter.com"];
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
