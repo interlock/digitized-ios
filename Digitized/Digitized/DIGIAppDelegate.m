@@ -73,4 +73,14 @@
     NSLog(@"Failed to authenticate %@", error);
 }
 
+- (void)OAuthClient:(RKOAuthClient *)client didAcquireAccessToken:(NSString *)token
+{
+    NSLog(@"Acquired access token successfully");
+}
+
+- (void)OAuthClient:(RKOAuthClient *)client didFailWithInvalidGrantError:(NSError *)error
+{
+    NSLog(@"Failed to acquire access token: %@", [error localizedDescription]);
+}
+
 @end
