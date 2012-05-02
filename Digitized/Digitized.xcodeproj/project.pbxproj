@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37CDB1FF1551C8AE0058CC7F /* DIGITouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDB1FE1551C8AE0058CC7F /* DIGITouchView.m */; };
 		EE1B8EE5154C3FE000AF34F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8EE4154C3FE000AF34F1 /* UIKit.framework */; };
 		EE1B8EE7154C3FE000AF34F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8EE6154C3FE000AF34F1 /* Foundation.framework */; };
 		EE1B8EE9154C3FE000AF34F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1B8EE8154C3FE000AF34F1 /* CoreGraphics.framework */; };
@@ -84,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37CDB1FD1551C8AE0058CC7F /* DIGITouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGITouchView.h; sourceTree = "<group>"; };
+		37CDB1FE1551C8AE0058CC7F /* DIGITouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGITouchView.m; sourceTree = "<group>"; };
 		EE1B8EE0154C3FE000AF34F1 /* Digitized.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digitized.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1B8EE4154C3FE000AF34F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EE1B8EE6154C3FE000AF34F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -264,6 +267,8 @@
 			children = (
 				EE1B8F46154C542600AF34F1 /* DIGITweetViewCell.h */,
 				EE1B8F47154C542600AF34F1 /* DIGITweetViewCell.m */,
+				37CDB1FD1551C8AE0058CC7F /* DIGITouchView.h */,
+				37CDB1FE1551C8AE0058CC7F /* DIGITouchView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				EEB3A24E154DF1B0000A75A1 /* DIGIMapViewController.m in Sources */,
 				EEB3A251154DF1C2000A75A1 /* DIGIWebViewController.m in Sources */,
 				EE49CF5A154E0818007B1C49 /* TCImageView.m in Sources */,
+				37CDB1FF1551C8AE0058CC7F /* DIGITouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
