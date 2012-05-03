@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface DIGILiveTweetTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,RKObjectLoaderDelegate>
+@interface DIGILiveTweetTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,RKObjectLoaderDelegate> {
+    RKObjectLoader *_currentObjectLoader;
+}
 
 @property (nonatomic,strong) NSArray *statuses;
 @property (nonatomic,strong) IBOutlet UIImageView *placeHolderImageView;

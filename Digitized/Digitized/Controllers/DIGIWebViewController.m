@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // Try changing the URL
+    defaultURL = @"http://digitized.tumblr.com/";
 }
 
 - (void)viewDidUnload
@@ -38,9 +41,11 @@
     // Release any retained subviews of the main view.
 }
 
+// This method will load or refresh the page everytime we switch to this tab
 - (void)viewWillAppear:(BOOL)animated {
     if ( self.webView.loading == NO ) {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://digitized.tumblr.com/"]]];
+
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:defaultURL]]];
     }
 }
 
@@ -52,25 +57,30 @@
 #pragma mark -
 #pragma mark - UI
 
+
 - (IBAction)refreshButtonClick:(id)sender {
    if ( self.webView.loading == NO ) {
        // resubmit the url again, incase we nagivated off the page"
-       [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://digitized.tumblr.com/"]]];
+       [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:defaultURL]]];
    }
 }
 
 #pragma mark -
 #pragma mark - UIWebViewDelegate
 
+// UIWebView will call this when it starts loading a URL
 - (void) webViewDidStartLoad:(UIWebView *)webView {
-    [self.activityIndicator startAnimating];
+    [self.activityIndicator startAnimating]; // Show our spinner
 }
 
+// UIWebView will call thi when it finishs loading the URL
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
-    [self.activityIndicator stopAnimating];
+    [self.activityIndicator stopAnimating]; // hide our spinner
 }
 
+// If UIWebView has a problem, it calls this so we can handle it
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.activityIndicator stopAnimating];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                     message:@"Looks like we could not load the website" 
                                                    delegate:nil 

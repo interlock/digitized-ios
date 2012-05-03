@@ -29,10 +29,12 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _currentObjectLoader = nil;
 }
 
 - (void)viewDidUnload
@@ -46,15 +48,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// This method refreshs the DataSource for the UITableView
 - (IBAction)refreshClick:(id)sender {
     [self loadTimeline];
 }
 
+// This method makes the request to Twitter if we are not already making a request
 - (void)loadTimeline {
+    // Test if we are already loading
+    if ( _currentObjectLoader != nil ) {
+        return;
+    }
     // Load the object model via RestKit	
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     
+    // You can change the search by replacing #Digitized2012 with something else
     [objectManager loadObjectsAtResourcePath:@"search.json?q=#Digitized2012" usingBlock:^(RKObjectLoader *loader) {
+        _currentObjectLoader = loader;
         loader.delegate = self;
         loader.objectMapping = [DIGISearch getMapping];
     }];
@@ -62,22 +72,23 @@
 
 - (void)loadView {
     [super loadView];
-	
-	// Setup View and Table View	
-	self.tableView.backgroundColor = [UIColor whiteColor];
-	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-	
-	[self loadTimeline];
+}
+
+// This method is called everytime we show the UITableView
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadTimeline];
 }
 
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    _currentObjectLoader = nil;
 }
      
-
+// This method takes the response from Twitter, updates our DataSource and tells the UITableView to refresh
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object {
+    _currentObjectLoader = nil;
     NSLog(@"Loaded statuses: %@", object);
     DIGISearch *searchResult = (DIGISearch*)object;
     
@@ -86,6 +97,7 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    _currentObjectLoader = nil;
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
 	NSLog(@"Hit error: %@", error);

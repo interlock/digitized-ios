@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIGIWebViewController : UIViewController <UIWebViewDelegate>
+@interface DIGIWebViewController : UIViewController <UIWebViewDelegate> {
+    NSString *defaultURL;
+}
 
 @property (nonatomic,strong) IBOutlet UIWebView *webView;
 @property (nonatomic,strong) IBOutlet UIActivityIndicatorView *activityIndicator;
