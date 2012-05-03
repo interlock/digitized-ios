@@ -1,3 +1,3 @@
 # Digitized iOS Starter Project
 
-(Site)[http://interlock.github.com/digitized-ios/]
+Follow along with the instructions on the site: http://interlock.github.com/digitized-ios/
