@@ -4,7 +4,15 @@ This project is a follow along project to teach some basic iOS/Xcode development
 
 ## Industry
 
+* 5.9 billion mobile subscriptions in the world (7 billion people total)
+* Only 1.3 billion web-enabled
+* ___ SMS messages sent last year
+
 ### Growth
+
+* It took AOL 9 years to reach 1 million users
+* It took Facebook 9 months to reach 1 million users
+* It took Draw Something 9 days to reach one million users
 
 [Platform Acceleration](http://www.lukew.com/ff/entry.asp?1524)
 
@@ -54,9 +62,18 @@ Lets walk through how it works in the View Controller.
 
 ### Hooking up the map
 
+Hook up the Locate button to locate the user
+
+Connect the MKMapView to the View Controller.
+
 
 ### Touch Tab
 
+Try the touches.
+
+Change the color to [UIColor redColor].
+
+Remove the views.
 
 ## Additional resources:
 
